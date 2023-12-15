@@ -425,6 +425,14 @@ header {
         border: none;
         height: 58px;
         cursor: pointer;
+
+        &:hover {
+          background: #C00404;
+        }
+
+        &:active {
+          background: #5F0000;
+        }
       }
 
       .error {

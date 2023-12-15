@@ -397,6 +397,12 @@ header .header-content {
   height: 58px;
   cursor: pointer;
 }
+.stepper .step-5 .form .main-form-btn:hover {
+  background: #C00404;
+}
+.stepper .step-5 .form .main-form-btn:active {
+  background: #5F0000;
+}
 .stepper .step-5 .form .error {
   width: 100%;
   font-weight: 400;
