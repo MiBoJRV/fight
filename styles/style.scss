@@ -350,7 +350,7 @@ header {
         width: 100%;
         min-height: 533px;
         height: 100%;
-        
+
         @media only screen and (max-width: 480px) {
           max-height: 254px;
           min-height: auto;
@@ -362,11 +362,11 @@ header {
       max-width: 436px;
       width: 100%;
       padding: 26px 36px 48px;
-      
+
       @media only screen and (max-width: 991px) {
         margin: 0 auto;
       }
-      
+
       @media only screen and (max-width: 480px) {
         padding: 25px 15px;
       }
@@ -499,6 +499,150 @@ header {
         color: rgb(0, 0, 0);
         white-space: nowrap;
       }
+
+      //Select box
+      .select-box {
+        position: relative;
+        display: block;
+        width: 108px;
+        margin: 0 auto;
+        font-family: "Open Sans", "Helvetica Neue", "Segoe UI", "Calibri", "Arial", sans-serif;
+        font-size: 18px;
+        color: #60666d;
+        z-index: 9;
+      }
+
+      .select-box__current {
+        position: relative;
+        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        outline: none;
+      }
+
+      .select-box__current:focus + .select-box__list {
+        opacity: 1;
+        animation-name: none;
+      }
+
+      .select-box__current:focus + .select-box__list .select-box__option {
+        cursor: pointer;
+      }
+
+      .select-box__current:focus .select-box__icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      .select-box__icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 20px;
+        opacity: 0.3;
+        transition: 0.2s ease;
+      }
+
+      .select-box__value {
+        display: flex;
+        width: 90px;
+      }
+
+      .select-box__input {
+        display: none;
+      }
+
+      .select-box__input:checked + .select-box__input-text {
+        display: flex;
+        //justify-content: flex-start;
+      }
+
+      .select-box__input-text {
+        display: none;
+        margin: 0;
+        background: #C5C5C5;
+        height: 58px;
+        //width: 108px;
+        border: none;
+        //padding: 16px 16px 8px 16px;
+        //font-family: "Roboto", sans-serif;
+        position: relative;
+        border-radius: 10px 0 0 10px;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 36px;
+      }
+
+      .select-box__input-text img:nth-child(1) {
+        margin-right: 6px;
+      }
+
+      .select-box__input-text img:nth-child(2) {
+        margin-left: 5px;
+      }
+
+
+      .select-box__list {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        opacity: 0;
+        background: #FCF1FF;
+        animation-name: HideList;
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: step-start;
+        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+      }
+
+      .select-box__list li {
+        position: relative;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .select-box__list li:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .select-box__list li:hover label {
+        background-color: rgba(0, 0, 0, 0.01);
+      }
+
+      .select-box__option {
+        background-color: #FCF1FF;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      .select-box__option img:nth-child(1) {
+        margin-right: 6px;
+      }
+
+      @keyframes HideList {
+        from {
+          transform: scaleY(1);
+        }
+        to {
+          transform: scaleY(0);
+        }
+      }
+      //End Select box
+
     }
   }
 }

@@ -1,12 +1,13 @@
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
+    const radioInputs = document.querySelectorAll(".select-box__input");
+
+    radioInputs.forEach(input => {
+        input.addEventListener("change", () => {
+            radioInputs.forEach(otherInput => otherInput.removeAttribute("checked"));
+            input.setAttribute("checked", "checked");
+        });
+    });
 
 
     const stepper = document.querySelector('.stepper');
@@ -107,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const lastNameField = form.querySelector('.form__input.last-name');
         const emailField = form.querySelector('.form__input.email');
         const phoneField = form.querySelector('.form__input.phone');
-        const areaCodeField = form.querySelector('.form__input.area_code');
+        // const areaCodeField = form.querySelector('.form__input.area_code');
+        const areaCodeField = form.querySelector('.phone-input .select-box__input:checked');
 
         return {
             firstNameField,
@@ -125,8 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = formElements.emailField.value;
         const phone = formElements.phoneField.value;
         // const areaCodeField = formElements.areaCodeField.value;
-        const countryCode = '420';
-        const fullNumber = `${countryCode}${phone}`;
+        // const countryCode = '420';
+
+        const checkedRadio = document.querySelector('.select-box__input:checked');
+        const areaCodeField = checkedRadio ? checkedRadio.value : '';
+
+        const fullNumber = `${areaCodeField}${phone}`;
 
         const data = {
             ApiKey: 'TnpRek1sODFNVEJmTnpRek1sOD0=',
@@ -247,9 +253,13 @@ document.addEventListener("DOMContentLoaded", () => {
         ////////////////////////////
 
         if (isValid) {
-            document.querySelector(".loader-sub").style.display = "flex";
+            // document.querySelector(".loader-sub").style.display = "flex";
+           const spinner =  document.querySelector(".loader-spinner ");
+            // spinner.style.display = "flex";
+            submitBtn.innerHTML = '<div id="loader-spinner" class="loader-spinner"></div>';
+            submitBtn.disabled = true;
             const countdownElement = document.getElementById('countdown');
-            let seconds = 2;
+            let seconds = 3;
 
             // Disable back button
             window.history.pushState(null, null, window.location.href);
@@ -260,7 +270,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const updateCountdown = () => {
                 countdownElement.textContent = seconds;
                 if (seconds === 0) {
-                    document.getElementById('loader-sub').style.display = 'none';
+                    // document.getElementById('loader-sub').style.display = 'none';
+                    document.getElementById('loader-spinner').style.display = 'none';
+                    submitBtn.textContent = 'START RECOVERY'
                     // Re-enable back button
                     window.onpopstate = null;
                 } else {

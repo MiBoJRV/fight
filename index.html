@@ -120,21 +120,73 @@
                                     Enter your email address Enter please your real email address (example@email.com)
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group phone-input">
                                 <div class="phone-row flag">
-                                    <div class="prefix-cell1 flag">
-                                        <div class="form-group flag">
-                                            <img style="width: 20px; height: 14px" src="image/flag-icon.svg"
-                                                 alt="flag">
-                                            <span class="form__input area_code">+420</span>
+<!--                                    <div class="prefix-cell1 flag">-->
+<!--                                        <div class="form-group flag">-->
+<!--                                            <img style="width: 20px; height: 14px" src="image/flag-icon.svg"-->
+<!--                                                 alt="flag">-->
+<!--                                            <span class="form__input area_code">+420</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="select-box">
+                                        <div class="select-box__current" tabindex="1">
+                                            <div class="select-box__value">
+<!--                                                <span>Phone number</span>-->
+                                                <input class="select-box__input" type="radio" id="0" value="1" name="phone" checked="checked"/>
+                                                <p class="select-box__input-text">
+                                                    <img src="image/ca.svg" alt="canada">
+                                                    +1
+                                                    <img src="image/arr.svg" alt="arr">
+                                                </p>
+                                            </div>
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="1" value="44" name="phone"/>
+                                                <p class="select-box__input-text">
+                                                    <img src="image/uk.svg" alt="united kingdom">
+                                                    +44
+                                                    <img src="image/arr.svg" alt="arr">
+                                                </p>
+                                            </div>
+                                            <div class="select-box__value">
+                                                <input class="select-box__input" type="radio" id="2" value="61" name="phone"/>
+                                                <p class="select-box__input-text">
+                                                    <img src="image/au.svg" alt="australia">
+                                                    +61
+                                                    <img src="image/arr.svg" alt="arr">
+                                                </p>
+                                            </div>
                                         </div>
+                                        <ul class="select-box__list">
+                                            <li>
+                                                <label class="select-box__option" for="0" aria-hidden="aria-hidden">
+                                                    <img src="image/ca.svg" alt="canada">
+                                                    +1
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="select-box__option" for="1" aria-hidden="aria-hidden">
+                                                    <img src="image/uk.svg" alt="united kingdom">
+                                                    +44
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="select-box__option" for="2" aria-hidden="aria-hidden">
+                                                    <img src="image/au.svg" alt="australia">
+                                                    +61
+                                                </label>
+                                            </li>
+                                        </ul>
                                     </div>
                                     <div class="phone-cell1">
                                         <div class="form-group">
                                             <input oninput="validatePhone(this)" required="" type="tel"
-                                                   class="form-control w-input form__input phone" maxlength="9"
+                                                   class="form-control w-input form__input phone" maxlength="11"
                                                    name="phone_number" data-name="phone_number"
                                                    placeholder="601 123 456">
+<!--                                            ca - 11-->
+<!--                                            au - 10-->
+<!--                                            uk - 10-->
                                             <div class="warning-icon"></div>
                                         </div>
                                     </div>
@@ -144,11 +196,33 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="main-form-btn">START RECOVERY</button>
+                                <button class="main-form-btn">
+                                    START RECOVERY
+<!--                                    <div id="loader-spinner" class="loader-spinner"></div>-->
+                                </button>
                             </div>
 
 
                             <style>
+                                .main-form-btn{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+                                .loader-spinner {
+                                    border: 4px solid rgba(0, 0, 0, 0.1);
+                                    border-top: 4px solid #fff;
+                                    border-radius: 50%;
+                                    width: 20px;
+                                    height: 20px;
+                                    animation: spin 1s linear infinite;
+                                    /*display: none;*/
+                                }
+
+                                @keyframes spin {
+                                    0% { transform: rotate(0deg); }
+                                    100% { transform: rotate(360deg); }
+                                }
                                 .main-form {
                                     position: relative;
                                 }
@@ -229,13 +303,13 @@
                             </script>
                         </form>
                         <div class="loader-sub" id="loader-sub">
-                            Děkujeme za vyplnění
+                            Thank you for filling out
                             <br>
-                            kontaktního formuláře,
+                            contact form,
                             <br>
-                            vaše údaje
+                            your data
                             <br>
-                            budou zpracovány do <span id="countdown">2</span> sekund.
+                            will be processed in <span id="countdown">2</span> seconds.
                         </div>
                     </div>
                 </div>
