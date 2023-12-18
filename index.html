@@ -144,7 +144,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="main-form-btn">START RECOVERY</button>
+                                <button class="main-form-btn">START RECOVERY</button>
                             </div>
 
 
@@ -216,6 +216,7 @@
 
                                 const validatePhone = (input) => {
                                     const regex = /^\d{9,}$/;
+                                    input.value = input.value.replace(/[^0-9]/g, '');
                                     const errorPhone = document.querySelector('.tel.error');
 
                                     if (!regex.test(input.value)) {
@@ -227,6 +228,15 @@
 
                             </script>
                         </form>
+                        <div class="loader-sub" id="loader-sub">
+                            Děkujeme za vyplnění
+                            <br>
+                            kontaktního formuláře,
+                            <br>
+                            vaše údaje
+                            <br>
+                            budou zpracovány do <span id="countdown">2</span> sekund.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,7 +251,7 @@
         </div>
     </div>
 </div>
-<script src="scripts/script.js"></script>
+<!--<script src="scripts/script.js"></script>-->
 <script src="scripts/send.js"></script>
 </body>
 </html>
