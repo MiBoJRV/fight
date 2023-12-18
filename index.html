@@ -133,7 +133,7 @@
                                         <div class="select-box__current" tabindex="1">
                                             <div class="select-box__value">
 <!--                                                <span>Phone number</span>-->
-                                                <input class="select-box__input" type="radio" id="0" value="1" name="phone" checked="checked"/>
+                                                <input class="select-box__input" type="radio" id="0" value="1" name="phone" checked="checked" onchange="updatePhoneInput('1')"/>
                                                 <p class="select-box__input-text">
                                                     <img src="image/ca.svg" alt="canada">
                                                     +1
@@ -141,7 +141,7 @@
                                                 </p>
                                             </div>
                                             <div class="select-box__value">
-                                                <input class="select-box__input" type="radio" id="1" value="44" name="phone"/>
+                                                <input class="select-box__input" type="radio" id="1" value="44" name="phone" onchange="updatePhoneInput('44')"/>
                                                 <p class="select-box__input-text">
                                                     <img src="image/uk.svg" alt="united kingdom">
                                                     +44
@@ -149,7 +149,7 @@
                                                 </p>
                                             </div>
                                             <div class="select-box__value">
-                                                <input class="select-box__input" type="radio" id="2" value="61" name="phone"/>
+                                                <input class="select-box__input" type="radio" id="2" value="61" name="phone" onchange="updatePhoneInput('61')"/>
                                                 <p class="select-box__input-text">
                                                     <img src="image/au.svg" alt="australia">
                                                     +61
@@ -184,8 +184,8 @@
                                                    class="form-control w-input form__input phone" maxlength="11"
                                                    name="phone_number" data-name="phone_number"
                                                    placeholder="601 123 456">
-<!--                                            ca - 11-->
-<!--                                            au - 10-->
+<!--                                            ca - 10-->
+<!--                                            au - 9-->
 <!--                                            uk - 10-->
                                             <div class="warning-icon"></div>
                                         </div>
@@ -244,6 +244,20 @@
                                 }
                             </style>
                             <script>
+                                function updatePhoneInput(countryCode) {
+                                    var phoneInput = document.querySelector('input[name="phone_number"]');
+                                    if (countryCode === '1') {
+                                        phoneInput.setAttribute('maxlength', '11');
+                                        phoneInput.setAttribute('placeholder', '306 663 5025');
+                                    } else if (countryCode === '61') {
+                                        phoneInput.setAttribute('maxlength', '10');
+                                        phoneInput.setAttribute('placeholder', '2 9887 0820');
+                                    } else if (countryCode === '44') {
+                                        phoneInput.setAttribute('maxlength', '10');
+                                        phoneInput.setAttribute('placeholder', '20 7739 5040');
+                                    }
+                                }
+
                                 const displayError = (errorElement, message) => {
                                     // errorElement.textContent = message;
                                     errorElement.style.display = 'block';
