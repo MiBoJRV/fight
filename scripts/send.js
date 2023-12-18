@@ -174,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
             .then(responseJson => {
+                // const message = document.querySelector('.message');
+                // message.textContent = responseJson.ret_message;
+
                 if (responseJson.ret_code !== '404') {
                     // window.location.href = 'thank-you.html';
                     // const redirectUrl = responseJson.url;
