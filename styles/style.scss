@@ -295,6 +295,9 @@ header {
       &.active:before {
         background-color: #8F0000;
       }
+      &:hover:before {
+        background-color: #8F0000;
+      }
     }
 
     .image {

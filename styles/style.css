@@ -275,6 +275,9 @@ header .header-content {
 .stepper .slide .list-item.active:before {
   background-color: #8F0000;
 }
+.stepper .slide .list-item:hover:before {
+  background-color: #8F0000;
+}
 @media only screen and (max-width: 991px) {
   .stepper .slide .image {
     display: none;
